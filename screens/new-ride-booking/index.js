@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Modal,
-  Pressable,
-  Image,
-  ImageBackground
-} from "react-native";
+import { Text, View, StyleSheet, Modal, Pressable, Image, ImageBackground } from "react-native";
 
 const NewRideBooking = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -21,26 +13,14 @@ const NewRideBooking = () => {
       time: "2 min"
     });
   }, []);
-  return (
-    <ImageBackground
-      style={styles.container}
-      source={require("./assets/mapBackground.png")}
-    >
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
+  return <ImageBackground style={styles.container} source={require("./assets/mapBackground.png")}>
+      <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => {
+      setModalVisible(!modalVisible);
+    }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.roundIconContainer}>
-              <Image
-                style={styles.locationIcon}
-                source={require("./assets/locationIcon.png")}
-              />
+              <Image style={styles.locationIcon} source={require("./assets/locationIcon.png")} />
             </View>
             <Text style={styles.heading}>New Booking</Text>
             <View style={styles.orderContainer}>
@@ -65,10 +45,7 @@ const NewRideBooking = () => {
                 </View>
               </View>
               <View style={styles.locationContainer}>
-                <Image
-                  source={require("./assets/Progress.png")}
-                  style={styles.progressImage}
-                />
+                <Image source={require("./assets/Progress.png")} style={styles.progressImage} />
                 <View style={styles.locationDetails}>
                   <View>
                     <Text style={[styles.black, styles.fnt16]}>
@@ -86,31 +63,16 @@ const NewRideBooking = () => {
               </View>
             </View>
             <View style={styles.flexRow}>
-              <Button
-                buttonText={"Accept"}
-                onPress={() => setModalVisible(!modalVisible)}
-                style={styles.button}
-              />
-              <Button
-                buttonText={"Decline"}
-                onPress={() => setModalVisible(!modalVisible)}
-                outlineColor="#000"
-                color="#fff"
-                textColor="#000"
-                style={styles.button}
-              />
+              <Button buttonText={"Accept"} onPress={() => setModalVisible(!modalVisible)} style={styles.button} />
+              <Button buttonText={"Decline"} onPress={() => setModalVisible(!modalVisible)} outlineColor="#000" color="#fff" textColor="#000" style={styles.button} />
             </View>
           </View>
         </View>
       </Modal>
-      <Button
-        buttonText={"Open Modal"}
-        onPress={() => setModalVisible(true)}
-        style={styles.modalButton}
-      />
-    </ImageBackground>
-  );
+      <Button buttonText={"Open Modal"} onPress={() => setModalVisible(true)} style={styles.modalButton} />
+    </ImageBackground>;
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -142,7 +104,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     shadowColor: "#000",
     elevation: 10,
-    shadowOffset: { width: 0, height: 0 },
+    shadowOffset: {
+      width: 0,
+      height: 0
+    },
     shadowOpacity: 0.3,
     shadowRadius: 10,
     alignSelf: "center",
@@ -237,9 +202,9 @@ const styles = StyleSheet.create({
     marginBottom: 20
   }
 });
-
 export default NewRideBooking;
-const Button = (params) => {
+
+const Button = params => {
   const backgroundColor = params.color || "#000";
   const textColor = params.textColor || "#fff";
   const btnStyle = {
@@ -250,21 +215,16 @@ const Button = (params) => {
   const btnText = {
     color: textColor
   };
-  return (
-    <View style={[buttonStyles.btnContainer, params.style]}>
+  return <View style={[buttonStyles.btnContainer, params.style]}>
       <View style={!params.hideShadow ? buttonStyles.shadowContainer : null}>
-        <Pressable
-          style={[buttonStyles.btn, btnStyle]}
-          onPress={params.onPress}
-        >
+        <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
           <Text style={[buttonStyles.btnText, btnText]}>
             {params.buttonText}
           </Text>
           <View style={styles.childrenContainer}>{params.children}</View>
         </Pressable>
       </View>
-    </View>
-  );
+    </View>;
 };
 
 const buttonStyles = StyleSheet.create({
@@ -284,7 +244,6 @@ const buttonStyles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-
     flexDirection: "row"
   },
   btnText: {

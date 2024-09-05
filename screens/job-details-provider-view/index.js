@@ -2,21 +2,14 @@ import React from "react";
 import { Text, StyleSheet, View, Image, ScrollView } from "react-native";
 
 const JobDetailsProviderViewScreen = () => {
-  return (
-    <ScrollView>
+  return <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
           <Image source={require("./assets/back.png")} style={styles.back} />
           <Text style={styles.heading}>Job details</Text>
           <View style={styles.messageContainer}>
-            <Image
-              source={require("./assets/pen.png")}
-              style={styles.message}
-            />
-            <Image
-              source={require("./assets/message.png")}
-              style={styles.message}
-            />
+            <Image source={require("./assets/pen.png")} style={styles.message} />
+            <Image source={require("./assets/message.png")} style={styles.message} />
           </View>
         </View>
         <View style={styles.tabView}>
@@ -57,12 +50,7 @@ const JobDetailsProviderViewScreen = () => {
           </Text>
         </View>
         <Text style={styles.mr10}>Number of Hours</Text>
-        <View
-          style={[
-            styles.chooseContainer,
-            { justifyContent: "center", marginBottom: 0 }
-          ]}
-        >
+        <View style={[styles.chooseContainer, styles.kKroNguJ]}>
           <Text>8</Text>
         </View>
         <View style={styles.bidContainer}>
@@ -74,14 +62,11 @@ const JobDetailsProviderViewScreen = () => {
         </View>
         <Text style={styles.mr10}>Salary</Text>
         <View style={styles.sliderContainer}>
-          <Image
-            source={require("./assets/slider.png")}
-            style={styles.sliderImg}
-          />
+          <Image source={require("./assets/slider.png")} style={styles.sliderImg} />
         </View>
         <View style={styles.sliderTextContainer}>
           <Text style={styles.sliderText}>$40k</Text>
-          <Text style={[styles.sliderText, { marginLeft: 170 }]}>$80k</Text>
+          <Text style={[styles.sliderText, styles.uMlNsJpk]}>$80k</Text>
         </View>
         <Text style={styles.mr10}>Bonus, Incentives</Text>
         <View style={styles.chooseContainer}>
@@ -95,11 +80,8 @@ const JobDetailsProviderViewScreen = () => {
 
         <View style={styles.walletCard}>
           <View style={styles.walletInner}>
-            <View style={[styles.imgContainer, { backgroundColor: "#F9D8D9" }]}>
-              <Image
-                source={require("./assets/edit.png")}
-                style={styles.image}
-              />
+            <View style={[styles.imgContainer, styles.ZBiaCXVv]}>
+              <Image source={require("./assets/edit.png")} style={styles.image} />
             </View>
 
             <View style={styles.walletCarder}>
@@ -116,11 +98,8 @@ const JobDetailsProviderViewScreen = () => {
 
         <View style={styles.walletCard}>
           <View style={styles.walletInner}>
-            <View style={[styles.imgContainer, { backgroundColor: "#FCF1D6" }]}>
-              <Image
-                source={require("./assets/edit.png")}
-                style={styles.image}
-              />
+            <View style={[styles.imgContainer, styles.DWqtMFaU]}>
+              <Image source={require("./assets/edit.png")} style={styles.image} />
             </View>
 
             <View style={styles.walletCarder}>
@@ -138,10 +117,7 @@ const JobDetailsProviderViewScreen = () => {
         <View style={styles.walletCard}>
           <View style={styles.walletInner}>
             <View style={styles.imgContainer}>
-              <Image
-                source={require("./assets/edit.png")}
-                style={styles.image}
-              />
+              <Image source={require("./assets/edit.png")} style={styles.image} />
             </View>
 
             <View style={styles.walletCarder}>
@@ -159,10 +135,7 @@ const JobDetailsProviderViewScreen = () => {
         <View style={styles.walletCard}>
           <View style={styles.walletInner}>
             <View style={styles.imgContainer}>
-              <Image
-                source={require("./assets/edit.png")}
-                style={styles.image}
-              />
+              <Image source={require("./assets/edit.png")} style={styles.image} />
             </View>
 
             <View style={styles.walletCarder}>
@@ -177,8 +150,7 @@ const JobDetailsProviderViewScreen = () => {
           </View>
         </View>
       </View>
-    </ScrollView>
-  );
+    </ScrollView>;
 };
 
 const styles = StyleSheet.create({
@@ -196,15 +168,28 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 20
   },
-  back: { width: 11.25, height: 20, resizeMode: "contain", marginLeft: -15 },
-  heading: { fontSize: 16, color: "#000" },
+  back: {
+    width: 11.25,
+    height: 20,
+    resizeMode: "contain",
+    marginLeft: -15
+  },
+  heading: {
+    fontSize: 16,
+    color: "#000"
+  },
   messageContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     width: 45
   },
-  message: { width: 20, height: 20, resizeMode: "contain", marginRight: -10 },
+  message: {
+    width: 20,
+    height: 20,
+    resizeMode: "contain",
+    marginRight: -10
+  },
   mr10: {
     marginLeft: 25,
     marginBottom: 10
@@ -241,8 +226,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 15
   },
-  descriptionText: { fontSize: 16, fontWeight: "400", marginLeft: 10 },
-  description: { fontSize: 12, marginVertical: 10, fontWeight: "500" },
+  descriptionText: {
+    fontSize: 16,
+    fontWeight: "400",
+    marginLeft: 10
+  },
+  description: {
+    fontSize: 12,
+    marginVertical: 10,
+    fontWeight: "500"
+  },
   sliderContainer: {
     marginHorizontal: 7,
     paddingHorizontal: 10
@@ -258,7 +251,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10
   },
-  sliderText: { color: "#77838F", marginLeft: 33, marginTop: 3 },
+  sliderText: {
+    color: "#77838F",
+    marginLeft: 33,
+    marginTop: 3
+  },
   tabView: {
     height: 48,
     backgroundColor: "#F1F1F1",
@@ -281,7 +278,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     flex: 1
   },
-  tabText: { fontSize: 12 },
+  tabText: {
+    fontSize: 12
+  },
   selectedTab: {
     backgroundColor: "#FFF",
     shadowColor: "gray",
@@ -345,7 +344,12 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderWidth: 0.5
   },
-  attending: { color: "#505050", fontSize: 12, marginLeft: 10, width: 115 },
+  attending: {
+    color: "#505050",
+    fontSize: 12,
+    marginLeft: 10,
+    width: 115
+  },
   imgContainer: {
     height: 80,
     width: 80,
@@ -354,14 +358,36 @@ const styles = StyleSheet.create({
     backgroundColor: "#dadada",
     borderRadius: 10
   },
-  image: { resizeMode: "contain", height: 32, width: 32 },
-  leftSection: { justifyContent: "center", alignItems: "center" },
+  image: {
+    resizeMode: "contain",
+    height: 32,
+    width: 32
+  },
+  leftSection: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
   bidContainer: {
     justifyContent: "center",
     alignItems: "center",
     marginTop: 3
   },
-  bidText: { fontSize: 12, color: "#939396" }
+  bidText: {
+    fontSize: 12,
+    color: "#939396"
+  },
+  kKroNguJ: {
+    justifyContent: "center",
+    marginBottom: 0
+  },
+  uMlNsJpk: {
+    marginLeft: 170
+  },
+  ZBiaCXVv: {
+    backgroundColor: "#F9D8D9"
+  },
+  DWqtMFaU: {
+    backgroundColor: "#FCF1D6"
+  }
 });
-
 export default JobDetailsProviderViewScreen;
