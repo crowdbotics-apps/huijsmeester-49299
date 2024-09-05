@@ -2,8 +2,7 @@ import React from "react";
 import { Image, Text, StyleSheet, View, ScrollView } from "react-native";
 
 const KanbanScreenTodo = () => {
-  return (
-    <ScrollView>
+  return <ScrollView>
       <View style={styles.container}>
         <Image resizeMode="contain" style={styles.headerImage} source={require("./assets/header.png")} />
         <Text style={styles.text}>Projects</Text>
@@ -21,8 +20,7 @@ const KanbanScreenTodo = () => {
           <FileCard />
         </View>
       </View>
-    </ScrollView>
-  );
+    </ScrollView>;
 };
 
 const styles = StyleSheet.create({
@@ -69,27 +67,25 @@ const styles = StyleSheet.create({
     borderRadius: 10
   }
 });
-
 export default KanbanScreenTodo;
 
 const FileCard = () => {
-  return (
-    <View style={fileStyles.container}>
+  return <View style={fileStyles.container}>
       <View style={fileStyles.innerContainer}>
         <View style={fileStyles.img}>
-          <Image source={require("./assets/edit.png")}/>
+          <Image source={require("./assets/edit.png")} />
         </View>
         <View style={fileStyles.textContainer}>
           <Text>Project</Text>
           <Text style={fileStyles.description}>Deadline: 14 April 2022</Text>
         </View>
         <View style={fileStyles.actionContainer}>
-          <Image style={fileStyles.action} source={require("./assets/percentage.png")}/>
+          <Image style={fileStyles.action} source={require("./assets/percentage.png")} />
         </View>
       </View>
-    </View>
-  );
+    </View>;
 };
+
 const fileStyles = StyleSheet.create({
   container: {
     borderRadius: 10,

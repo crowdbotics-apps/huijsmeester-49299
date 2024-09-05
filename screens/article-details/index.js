@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TextInput,
-  Pressable
-} from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView, TextInput, Pressable } from "react-native";
 
 const ArticleDetails = () => {
   const [comment, setComment] = useState("");
@@ -16,8 +8,7 @@ const ArticleDetails = () => {
   useEffect(() => {
     setArticle({
       title: "Article name",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa faucibus nisi egestas quis etiam nec feugiat. Scelerisque pellentesque at in accumsan cras tristique at id. At nullam lectus sapien nulla. At egestas cursus elit, tortor mattis gravida ornare proin ipsum. Duis purus turpis libero tristique dignissim.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa faucibus nisi egestas quis etiam nec feugiat. Scelerisque pellentesque at in accumsan cras tristique at id. At nullam lectus sapien nulla. At egestas cursus elit, tortor mattis gravida ornare proin ipsum. Duis purus turpis libero tristique dignissim.",
       authorName: "Author name",
       authorImage: require("./assets/authorImage.png"),
       image: require("./assets/articleImage.png"),
@@ -25,25 +16,21 @@ const ArticleDetails = () => {
       readTime: "15 min read",
       commentsCount: "1.2k"
     });
-    setComments([
-      {
-        user: {
-          name: "Username",
-          image: require("./assets/userImage.png")
-        },
-        comment: "Dueotep Leo semper nunc eget varius et."
+    setComments([{
+      user: {
+        name: "Username",
+        image: require("./assets/userImage.png")
       },
-      {
-        user: {
-          name: "Username",
-          image: require("./assets/userImage.png")
-        },
-        comment: "Dueotep Leo semper nunc eget varius et."
-      }
-    ]);
+      comment: "Dueotep Leo semper nunc eget varius et."
+    }, {
+      user: {
+        name: "Username",
+        image: require("./assets/userImage.png")
+      },
+      comment: "Dueotep Leo semper nunc eget varius et."
+    }]);
   }, []);
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <ScrollView>
         <View style={styles.articleContainer}>
           <View style={styles.imageContainer}>
@@ -52,18 +39,9 @@ const ArticleDetails = () => {
           <View style={styles.heading}>
             <Text style={styles.title}>{article.title}</Text>
             <View style={styles.headingIcons}>
-              <Image
-                style={styles.icon}
-                source={require("./assets/copyIcon.png")}
-              />
-              <Image
-                style={styles.icon}
-                source={require("./assets/readIcon.png")}
-              />
-              <Image
-                style={styles.icon}
-                source={require("./assets/newIcon.png")}
-              />
+              <Image style={styles.icon} source={require("./assets/copyIcon.png")} />
+              <Image style={styles.icon} source={require("./assets/readIcon.png")} />
+              <Image style={styles.icon} source={require("./assets/newIcon.png")} />
             </View>
           </View>
           <Text style={styles.articleDescription}>{article.description}</Text>
@@ -82,39 +60,22 @@ const ArticleDetails = () => {
             <Text style={styles.commentsHeaderText}>Comments</Text>
             <View style={styles.headingIcons}>
               <Text>{article.commentsCount}</Text>
-              <Image
-                style={styles.icon}
-                source={require("./assets/commentIcon.png")}
-                resizeMode="contain"
-              />
+              <Image style={styles.icon} source={require("./assets/commentIcon.png")} resizeMode="contain" />
             </View>
           </View>
-          {comments.map((item, index) => (
-            <Comment key={index} comment={item} />
-          ))}
+          {comments.map((item, index) => <Comment key={index} comment={item} />)}
           <View style={styles.commentsFooter}>
             <Text style={styles.footerText}>See more</Text>
-            <Image
-              source={require("./assets/dropdownIcon.png")}
-              style={styles.dropdownIcon}
-            />
+            <Image source={require("./assets/dropdownIcon.png")} style={styles.dropdownIcon} />
           </View>
         </View>
-        <Input
-          text="Write comment"
-          placeholder="Write a comment"
-          value={comment}
-          onChangeText={setComment}
-          textArea={true}
-          containerStyle={styles.inputContainer}
-        >
+        <Input text="Write comment" placeholder="Write a comment" value={comment} onChangeText={setComment} textArea={true} containerStyle={styles.inputContainer}>
           <Pressable style={styles.button}>
             <Text style={styles.btnText}>Submit</Text>
           </Pressable>
         </Input>
       </ScrollView>
-    </View>
-  );
+    </View>;
 };
 
 const styles = StyleSheet.create({
@@ -244,38 +205,25 @@ const styles = StyleSheet.create({
     color: "#EA4335"
   }
 });
-
 export default ArticleDetails;
 
-const Comment = ({ comment }) => {
-  return (
-    <View style={commentStyles.commentContainer}>
+const Comment = ({
+  comment
+}) => {
+  return <View style={commentStyles.commentContainer}>
       <Image style={commentStyles.commentImage} source={comment.user.image} />
       <View style={commentStyles.commentDescription}>
         <View style={commentStyles.usernameContainer}>
           <Text>{comment.user.name}</Text>
           <View style={commentStyles.headingIcons}>
-            <Image
-              style={commentStyles.icon}
-              source={require("./assets/likeIcon.png")}
-              resizeMode="contain"
-            />
-            <Image
-              style={commentStyles.icon}
-              source={require("./assets/dislikeIcon.png")}
-              resizeMode="contain"
-            />
-            <Image
-              style={commentStyles.icon}
-              source={require("./assets/redFlagIcon.png")}
-              resizeMode="contain"
-            />
+            <Image style={commentStyles.icon} source={require("./assets/likeIcon.png")} resizeMode="contain" />
+            <Image style={commentStyles.icon} source={require("./assets/dislikeIcon.png")} resizeMode="contain" />
+            <Image style={commentStyles.icon} source={require("./assets/redFlagIcon.png")} resizeMode="contain" />
           </View>
         </View>
         <Text style={commentStyles.commentText}>{comment.comment}</Text>
       </View>
-    </View>
-  );
+    </View>;
 };
 
 const commentStyles = StyleSheet.create({
@@ -317,50 +265,16 @@ const commentStyles = StyleSheet.create({
     resizeMode: "contain"
   }
 });
-const Input = (props) => {
-  return (
-    <View style={[inputStyles.inputContainer, props.containerStyle]}>
-      {props.text
-        ? (
-        <Text style={inputStyles.inputText}>{props.text}</Text>
-          )
-        : null}
 
-      <TextInput
-        style={[
-          inputStyles.input,
-          props.style,
-          props.textArea ? inputStyles.textArea : null
-        ]}
-        placeholder={props.placeholder ? props.placeholder : "Enter"}
-        value={props.value}
-        onChangeText={(text) => props.onChange(text)}
-        placeholderTextColor={
-          props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"
-        }
-        editable={props.editable !== false}
-        autoCapitalize="none"
-        autoCorrect={false}
-        multiline={!!props.textArea}
-      />
-      {props.errorText
-        ? (
-        <Text style={inputStyles.error}>{props.errorText}</Text>
-          )
-        : null}
-      {props.icon
-        ? (
-        <Image
-          source={props.icon}
-          style={
-            props.text ? inputStyles.iconWithText : inputStyles.iconWithoutText
-          }
-        />
-          )
-        : null}
+const Input = props => {
+  return <View style={[inputStyles.inputContainer, props.containerStyle]}>
+      {props.text ? <Text style={inputStyles.inputText}>{props.text}</Text> : null}
+
+      <TextInput style={[inputStyles.input, props.style, props.textArea ? inputStyles.textArea : null]} placeholder={props.placeholder ? props.placeholder : "Enter"} value={props.value} onChangeText={text => props.onChange(text)} placeholderTextColor={props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"} editable={props.editable !== false} autoCapitalize="none" autoCorrect={false} multiline={!!props.textArea} />
+      {props.errorText ? <Text style={inputStyles.error}>{props.errorText}</Text> : null}
+      {props.icon ? <Image source={props.icon} style={props.text ? inputStyles.iconWithText : inputStyles.iconWithoutText} /> : null}
       <View style={styles.children}>{props.children}</View>
-    </View>
-  );
+    </View>;
 };
 
 const inputStyles = StyleSheet.create({

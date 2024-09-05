@@ -2,8 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View, ScrollView, Image, TextInput, TouchableHighlight } from "react-native";
 
 const EventsAdvancedScreen = () => {
-  return (
-    <ScrollView>
+  return <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
           <Image source={require("./assets/back.png")} style={styles.back} />
@@ -24,11 +23,7 @@ const EventsAdvancedScreen = () => {
             <View style={styles.walletCard}>
               <View style={styles.walletInner}>
                 <View style={styles.imgContainer}>
-                  <Image
-                    source={require(
-                      "./assets/edit.png")}
-                    style={styles.image}
-                  />
+                  <Image source={require("./assets/edit.png")} style={styles.image} />
                 </View>
                 <View style={styles.walletCarder}>
                   <Text style={styles.eventName}>Title of event</Text>
@@ -81,8 +76,7 @@ const EventsAdvancedScreen = () => {
           <Button>Confirm</Button>
         </View>
       </View>
-    </ScrollView>
-  );
+    </ScrollView>;
 };
 
 const styles = StyleSheet.create({
@@ -91,8 +85,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingHorizontal: 10
   },
-  mainContainer: { width: "100%" },
-  subHeading: { fontSize: 16, fontWeight: "bold", marginLeft: 30, marginVertical: 20 },
+  mainContainer: {
+    width: "100%"
+  },
+  subHeading: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginLeft: 30,
+    marginVertical: 20
+  },
   walletCard: {
     backgroundColor: "#fff",
     padding: 10,
@@ -132,9 +133,21 @@ const styles = StyleSheet.create({
     width: 115,
     marginVertical: 5
   },
-  date: { fontSize: 38, color: "#000" },
-  time: { fontSize: 12, color: "#000", marginTop: -5 },
-  attending: { color: "#dadada", fontSize: 14, marginLeft: 10, width: 115 },
+  date: {
+    fontSize: 38,
+    color: "#000"
+  },
+  time: {
+    fontSize: 12,
+    color: "#000",
+    marginTop: -5
+  },
+  attending: {
+    color: "#dadada",
+    fontSize: 14,
+    marginLeft: 10,
+    width: 115
+  },
   imgContainer: {
     height: 80,
     width: 80,
@@ -143,8 +156,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#dadada",
     borderRadius: 10
   },
-  image: { resizeMode: "contain" },
-  leftSection: { justifyContent: "center", alignItems: "center" },
+  image: {
+    resizeMode: "contain"
+  },
+  leftSection: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -153,10 +171,27 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 40
   },
-  back: { width: 11.25, height: 20, resizeMode: "contain", marginLeft: -20 },
-  heading: { fontSize: 16, color: "#000", marginLeft: 20 },
-  star: { width: 20, height: 20, resizeMode: "contain" },
-  settings: { width: 20, height: 19.4, resizeMode: "contain" },
+  back: {
+    width: 11.25,
+    height: 20,
+    resizeMode: "contain",
+    marginLeft: -20
+  },
+  heading: {
+    fontSize: 16,
+    color: "#000",
+    marginLeft: 20
+  },
+  star: {
+    width: 20,
+    height: 20,
+    resizeMode: "contain"
+  },
+  settings: {
+    width: 20,
+    height: 19.4,
+    resizeMode: "contain"
+  },
   IconContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -171,25 +206,24 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     marginBottom: 10
   },
-  descriptionContainer: { paddingHorizontal: 20 },
-  descriptionText: { marginVertical: 10, marginHorizontal: 20 },
-  description: { fontSize: 12, textAlign: "justify" }
+  descriptionContainer: {
+    paddingHorizontal: 20
+  },
+  descriptionText: {
+    marginVertical: 10,
+    marginHorizontal: 20
+  },
+  description: {
+    fontSize: 12,
+    textAlign: "justify"
+  }
 });
 
-const Input = (props) => {
-  return (
-    <View>
-      <TextInput
-        style={textStyles.input}
-        placeholder={props.placeholder}
-        value={props.value}
-        onChangeText={(num) => props.setValue(num)}
-        placeholderTextColor="#000"
-        editable={props.editable !== false}
-      />
+const Input = props => {
+  return <View>
+      <TextInput style={textStyles.input} placeholder={props.placeholder} value={props.value} onChangeText={num => props.setValue(num)} placeholderTextColor="#000" editable={props.editable !== false} />
       {props.errorText ? <Text style={textStyles.error}>{props.errorText}</Text> : null}
-    </View>
-  );
+    </View>;
 };
 
 const textStyles = StyleSheet.create({
@@ -211,26 +245,21 @@ const textStyles = StyleSheet.create({
   }
 });
 
-const Button = (props) => {
-  return (
-    <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
-      <View
-        style={[
-          btnStyles.button,
-          {
-            backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
-            height: props.height ? props.height : 49,
-            borderWidth: props.borderWidth ? props.borderWidth : 0,
-            borderColor: props.borderColor ? props.borderColor : "#000000"
-          }
-        ]}
-      >
-        <Text style={[btnStyles.text, { color: props.color ? props.color : "#ffffff" }]}>
+const Button = props => {
+  return <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
+      <View style={[btnStyles.button, {
+      backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
+      height: props.height ? props.height : 49,
+      borderWidth: props.borderWidth ? props.borderWidth : 0,
+      borderColor: props.borderColor ? props.borderColor : "#000000"
+    }]}>
+        <Text style={[btnStyles.text, {
+        color: props.color ? props.color : "#ffffff"
+      }]}>
           {props.children}
         </Text>
       </View>
-    </TouchableHighlight>
-  );
+    </TouchableHighlight>;
 };
 
 const btnStyles = StyleSheet.create({
@@ -247,5 +276,4 @@ const btnStyles = StyleSheet.create({
     fontSize: 15
   }
 });
-
 export default EventsAdvancedScreen;

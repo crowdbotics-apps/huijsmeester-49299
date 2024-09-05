@@ -1,85 +1,73 @@
 import React from "react";
 import { View, ScrollView, Image, Text, StyleSheet } from "react-native";
+const data = [{
+  bgColor: "#FCF1D6",
+  key: 1,
+  text: "Mauris ultrices ut mauris ut elementum nunc. Quisque eu vulputate nunc. Sed odio lectus."
+}, {
+  bgColor: "#FCF1D6",
+  key: 2,
+  text: "Mauris ultrices ut mauris ut elementum nunc. Quisque eu vulputate nunc. Sed odio lectus."
+}];
 
-const data = [
-  {
-    bgColor: "#FCF1D6",
-    key: 1,
-    text: "Mauris ultrices ut mauris ut elementum nunc. Quisque eu vulputate nunc. Sed odio lectus."
-  },
-  {
-    bgColor: "#FCF1D6",
-    key: 2,
-    text: "Mauris ultrices ut mauris ut elementum nunc. Quisque eu vulputate nunc. Sed odio lectus."
-  }
-];
 const Post = () => {
-  return (
-
-    <ScrollView>
+  return <ScrollView>
       <View style={styles.container}>
         <View style={styles.headerContainer}>
-          <Image
-            source={require("./assets/plus.png")}
-            style={styles.headerImage}
-          />
+          <Image source={require("./assets/plus.png")} style={styles.headerImage} />
         </View>
-        {data.map((item) => <PostComponent bgColor={item.bgColor} text={item.text} key={item.key} />)}
+        {data.map(item => <PostComponent bgColor={item.bgColor} text={item.text} key={item.key} />)}
       </View>
-    </ScrollView>
-
-  );
+    </ScrollView>;
 };
 
 export default Post;
-
 const styles = StyleSheet.create({
-  container: { padding: 10, height: "100%", backgroundColor: "#FFF" },
-  headerContainer: { display: "flex", flexDirection: "row", justifyContent: "flex-end" },
-  headerImage: { height: 20, width: 20 }
-
+  container: {
+    padding: 10,
+    height: "100%",
+    backgroundColor: "#FFF"
+  },
+  headerContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end"
+  },
+  headerImage: {
+    height: 20,
+    width: 20
+  }
 });
 
-const PostComponent = ({ bgColor, text }) => {
-  return (
-    <View>
+const PostComponent = ({
+  bgColor,
+  text
+}) => {
+  return <View>
       <View style={userPostStyles.usernameContainer}>
         <View style={userPostStyles.userImageContainer}>
-          <Image
-          source={require("./assets/tempImage.png")}
-          style={userPostStyles.userImage}
-          />
+          <Image source={require("./assets/tempImage.png")} style={userPostStyles.userImage} />
         </View>
         <Text style={userPostStyles.userText}>Username</Text>
       </View>
-      <View style={[userPostStyles.userPostImage, { backgroundColor: bgColor }]}>
-        <Image
-          source={require("./assets/tempImage.png")}
-          style={userPostStyles.postImage}
-        />
+      <View style={[userPostStyles.userPostImage, {
+      backgroundColor: bgColor
+    }]}>
+        <Image source={require("./assets/tempImage.png")} style={userPostStyles.postImage} />
       </View>
       <View style={userPostStyles.postcontainer}>
         <View style={userPostStyles.leftContainer}>
-          <Image
-            source={require("./assets/like.png")}
-            style={userPostStyles.imageIcons}
-          />
+          <Image source={require("./assets/like.png")} style={userPostStyles.imageIcons} />
           <Text style={userPostStyles.mh10}>56</Text>
-          <Image
-            source={require("./assets/comment.png")}
-            style={userPostStyles.imageIcons}
-          />
+          <Image source={require("./assets/comment.png")} style={userPostStyles.imageIcons} />
           <Text style={userPostStyles.mh10}>6</Text>
         </View>
-        <Image
-          source={require("./assets/group.png")}
-          style={[userPostStyles.imageIcons, userPostStyles.mr10]}
-        />
+        <Image source={require("./assets/group.png")} style={[userPostStyles.imageIcons, userPostStyles.mr10]} />
       </View>
       <Text style={userPostStyles.postText}>{text}</Text>
-    </View>
-  );
+    </View>;
 };
+
 const userPostStyles = StyleSheet.create({
   usernameContainer: {
     display: "flex",
@@ -147,5 +135,4 @@ const userPostStyles = StyleSheet.create({
   mr10: {
     marginRight: 10
   }
-
 });

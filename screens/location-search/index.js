@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  TextInput,
-  Pressable,
-  Switch,
-  Image,
-  ScrollView
-} from "react-native";
+import { Text, View, StyleSheet, TextInput, Pressable, Switch, Image, ScrollView } from "react-native";
 import { Slider } from "react-native-elements";
 
 const LocationSearch = () => {
@@ -20,74 +11,40 @@ const LocationSearch = () => {
   useEffect(() => {
     setDistanceOptions(["10 miles", "20 miles", "30 miles", "Custom"]);
   }, []);
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <ScrollView>
         <View style={styles.header}>
           <View style={styles.flexRow}>
             <Text style={styles.heading}>Use my location</Text>
-            <Switch
-              value={useMyLocation}
-              onValueChange={() => setUseMyLocation(!useMyLocation)}
-              trackColor={{ false: "#e5e5e5", true: "#e5e5e5" }}
-              thumbColor={"#000"}
-              style={styles.switch}
-            />
+            <Switch value={useMyLocation} onValueChange={() => setUseMyLocation(!useMyLocation)} trackColor={{
+            false: "#e5e5e5",
+            true: "#e5e5e5"
+          }} thumbColor={"#000"} style={styles.switch} />
           </View>
-          <Input
-            placeholder="Search for a location"
-            value={searchValue}
-            onChange={setSearchValue}
-          />
+          <Input placeholder="Search for a location" value={searchValue} onChange={setSearchValue} />
           <View style={styles.flexRow}>
             <Text style={styles.heading}>Mile Range from this location</Text>
-            <Image
-              source={require("./assets/dropdownIcon.png")}
-              style={styles.icon}
-            />
+            <Image source={require("./assets/dropdownIcon.png")} style={styles.icon} />
           </View>
         </View>
         <View style={styles.rangeContainer}>
-          {distanceOptions.map((option, index) => (
-            <View key={index} style={styles.flexRow}>
-              <Checkbox
-                value={option === selectedOption}
-                setValue={() => setSelectedOption(option)}
-                style={styles.checkbox}
-              />
+          {distanceOptions.map((option, index) => <View key={index} style={styles.flexRow}>
+              <Checkbox value={option === selectedOption} setValue={() => setSelectedOption(option)} style={styles.checkbox} />
               <Text style={styles.heading}>{option}</Text>
-            </View>
-          ))}
-          {selectedOption === "Custom" && (
-            <Slider
-              style={styles.slider}
-              value={customDistance}
-              onValueChange={setCustomDistance}
-              minimumValue={10}
-              maximumValue={80}
-              step={1}
-              thumbStyle={styles.sliderThumb}
-              trackStyle={styles.sliderTrack}
-              thumbProps={{
-                children: (
-                  <View style={styles.sliderTextContainer}>
+            </View>)}
+          {selectedOption === "Custom" && <Slider style={styles.slider} value={customDistance} onValueChange={setCustomDistance} minimumValue={10} maximumValue={80} step={1} thumbStyle={styles.sliderThumb} trackStyle={styles.sliderTrack} thumbProps={{
+          children: <View style={styles.sliderTextContainer}>
                     <Text style={styles.sliderText}>
                       {customDistance} miles
                     </Text>
                   </View>
-                )
-              }}
-              minimumTrackTintColor="#000"
-              maximumTrackTintColor="#ccc"
-              thumbTintColor="#000"
-            />
-          )}
+        }} minimumTrackTintColor="#000" maximumTrackTintColor="#ccc" thumbTintColor="#000" />}
         </View>
         <Button buttonText="Done" style={styles.button} />
       </ScrollView>
-    </View>
-  );
+    </View>;
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -108,7 +65,11 @@ const styles = StyleSheet.create({
     paddingVertical: 5
   },
   switch: {
-    transform: [{ scaleX: 0.9 }, { scaleY: 0.9 }]
+    transform: [{
+      scaleX: 0.9
+    }, {
+      scaleY: 0.9
+    }]
   },
   icon: {
     width: 20,
@@ -171,55 +132,17 @@ const styles = StyleSheet.create({
     marginBottom: 20
   }
 });
-
 export default LocationSearch;
 
-const Input = (props) => {
-  return (
-    <View style={[inputStyles.inputContainer, props.containerStyle]}>
-      {props.text
-        ? (
-        <Text style={inputStyles.inputText}>{props.text}</Text>
-          )
-        : null}
+const Input = props => {
+  return <View style={[inputStyles.inputContainer, props.containerStyle]}>
+      {props.text ? <Text style={inputStyles.inputText}>{props.text}</Text> : null}
 
-      <TextInput
-        style={[
-          inputStyles.input,
-          props.style,
-          props.textArea ? inputStyles.textArea : null
-        ]}
-        placeholder={props.placeholder ? props.placeholder : "Enter"}
-        value={props.value}
-        onChangeText={() => props.onChange()}
-        placeholderTextColor={
-          props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"
-        }
-        editable={props.editable !== false}
-        autoCapitalize="none"
-        autoCorrect={false}
-        multiline={!!props.textArea}
-        backgroundColor={props.backgroundColor}
-        secureTextEntry={props.secureTextEntry}
-      />
-      {props.errorText
-        ? (
-        <Text style={inputStyles.error}>{props.errorText}</Text>
-          )
-        : null}
-      {props.icon
-        ? (
-        <Image
-          source={props.icon}
-          style={
-            props.text ? inputStyles.iconWithText : inputStyles.iconWithoutText
-          }
-        />
-          )
-        : null}
+      <TextInput style={[inputStyles.input, props.style, props.textArea ? inputStyles.textArea : null]} placeholder={props.placeholder ? props.placeholder : "Enter"} value={props.value} onChangeText={() => props.onChange()} placeholderTextColor={props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"} editable={props.editable !== false} autoCapitalize="none" autoCorrect={false} multiline={!!props.textArea} backgroundColor={props.backgroundColor} secureTextEntry={props.secureTextEntry} />
+      {props.errorText ? <Text style={inputStyles.error}>{props.errorText}</Text> : null}
+      {props.icon ? <Image source={props.icon} style={props.text ? inputStyles.iconWithText : inputStyles.iconWithoutText} /> : null}
       <View style={styles.children}>{props.children}</View>
-    </View>
-  );
+    </View>;
 };
 
 const inputStyles = StyleSheet.create({
@@ -265,24 +188,12 @@ const inputStyles = StyleSheet.create({
   children: {}
 });
 
-const Checkbox = (props) => {
-  return (
-    <Pressable
-      onPress={() => {
-        props.setValue(!props.value);
-      }}
-      style={[checkboxStyles.container, props.style]}
-    >
-      <Image
-        source={
-          props.value
-            ? require("./assets/checkboxIconActive.png")
-            : require("./assets/checkboxIcon.png")
-        }
-        style={[checkboxStyles.checkbox]}
-      />
-    </Pressable>
-  );
+const Checkbox = props => {
+  return <Pressable onPress={() => {
+    props.setValue(!props.value);
+  }} style={[checkboxStyles.container, props.style]}>
+      <Image source={props.value ? require("./assets/checkboxIconActive.png") : require("./assets/checkboxIcon.png")} style={[checkboxStyles.checkbox]} />
+    </Pressable>;
 };
 
 const checkboxStyles = StyleSheet.create({
@@ -295,7 +206,8 @@ const checkboxStyles = StyleSheet.create({
     width: "100%"
   }
 });
-const Button = (params) => {
+
+const Button = params => {
   const backgroundColor = params.backgroundColor || "#000";
   const textColor = params.textColor || "#fff";
   const btnStyle = {
@@ -306,21 +218,16 @@ const Button = (params) => {
   const btnText = {
     color: textColor
   };
-  return (
-    <View style={[buttonStyles.btnContainer, params.style]}>
+  return <View style={[buttonStyles.btnContainer, params.style]}>
       <View style={!params.hideShadow ? buttonStyles.shadowContainer : null}>
-        <Pressable
-          style={[buttonStyles.btn, btnStyle]}
-          onPress={params.onPress}
-        >
+        <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
           <Text style={[buttonStyles.btnText, btnText]}>
             {params.buttonText}
           </Text>
           <View style={styles.childrenContainer}>{params.children}</View>
         </Pressable>
       </View>
-    </View>
-  );
+    </View>;
 };
 
 const buttonStyles = StyleSheet.create({
@@ -346,7 +253,6 @@ const buttonStyles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-
     flexDirection: "row"
   },
   btnText: {

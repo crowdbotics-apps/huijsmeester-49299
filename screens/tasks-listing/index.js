@@ -1,16 +1,8 @@
 import React from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TouchableHighlight
-} from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView, TouchableHighlight } from "react-native";
 
 const TasksListing = () => {
-  return (
-    <ScrollView style={styles.container}>
+  return <ScrollView style={styles.container}>
       <View style={styles.tabSection}>
         <Text style={styles.subHeading}>My Tasker</Text>
         <Image source={require("./assets/file.png")} style={styles.addImg} />
@@ -28,10 +20,7 @@ const TasksListing = () => {
         <View style={styles.walletCard}>
           <View style={styles.walletInner}>
             <View style={styles.imgContainer}>
-              <Image
-                source={require("./assets/edit.png")}
-                style={styles.image}
-              />
+              <Image source={require("./assets/edit.png")} style={styles.image} />
             </View>
             <View style={styles.walletCarder}>
               <Text style={styles.eventName}>Tasker name</Text>
@@ -57,10 +46,7 @@ const TasksListing = () => {
         <View style={styles.walletCard}>
           <View style={styles.walletInner}>
             <View style={styles.imgContainer}>
-              <Image
-                source={require("./assets/edit.png")}
-                style={styles.image}
-              />
+              <Image source={require("./assets/edit.png")} style={styles.image} />
             </View>
             <View style={styles.walletCarder}>
               <Text style={styles.eventName}>Tasker name</Text>
@@ -87,14 +73,11 @@ const TasksListing = () => {
         <Image source={require("./assets/task.png")} style={styles.task} />
         <Image source={require("./assets/tasker.png")} style={styles.tasker} />
         <Image source={require("./assets/chat.png")} style={styles.chat} />
-        <Image
-          source={require("./assets/profile.png")}
-          style={styles.profile}
-        />
+        <Image source={require("./assets/profile.png")} style={styles.profile} />
       </View>
-    </ScrollView>
-  );
+    </ScrollView>;
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -190,7 +173,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#dadada",
     borderRadius: 10
   },
-  image: { height: 32, width: 32, resizeMode: "contain" },
+  image: {
+    height: 32,
+    width: 32,
+    resizeMode: "contain"
+  },
   buttonBottom: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -207,10 +194,20 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10
   },
-  view: { fontSize: 30, color: "#000", fontWeight: "bold" },
-  info: { marginHorizontal: 15, marginVertical: 5 },
+  view: {
+    fontSize: 30,
+    color: "#000",
+    fontWeight: "bold"
+  },
+  info: {
+    marginHorizontal: 15,
+    marginVertical: 5
+  },
   infoTitle: {},
-  infoText: { fontSize: 12, color: "#7E7D7D" },
+  infoText: {
+    fontSize: 12,
+    color: "#7E7D7D"
+  },
   bottom: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -220,41 +217,51 @@ const styles = StyleSheet.create({
     backgroundColor: "#C4C4C4",
     height: 74
   },
-  star: { width: 35, height: 40, resizeMode: "contain" },
-  task: { width: 28, height: 34, resizeMode: "contain" },
-  chat: { width: 28, height: 38, resizeMode: "contain" },
-  profile: { width: 38, height: 38, resizeMode: "contain" },
-  tasker: { width: 68, height: 40, resizeMode: "contain" },
-  rating: { color: "#000" }
+  star: {
+    width: 35,
+    height: 40,
+    resizeMode: "contain"
+  },
+  task: {
+    width: 28,
+    height: 34,
+    resizeMode: "contain"
+  },
+  chat: {
+    width: 28,
+    height: 38,
+    resizeMode: "contain"
+  },
+  profile: {
+    width: 38,
+    height: 38,
+    resizeMode: "contain"
+  },
+  tasker: {
+    width: 68,
+    height: 40,
+    resizeMode: "contain"
+  },
+  rating: {
+    color: "#000"
+  }
 });
 
-const Button = (props) => {
-  return (
-    <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
-      <View
-        style={[
-          btnStyles.button,
-          {
-            backgroundColor: props.backgroundColor
-              ? props.backgroundColor
-              : "#000000",
-            height: props.height ? props.height : 49,
-            borderWidth: props.borderWidth ? props.borderWidth : 0,
-            borderColor: props.borderColor ? props.borderColor : "#000000"
-          }
-        ]}
-      >
-        <Text
-          style={[
-            btnStyles.text,
-            { color: props.color ? props.color : "#ffffff" }
-          ]}
-        >
+const Button = props => {
+  return <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
+      <View style={[btnStyles.button, {
+      backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
+      height: props.height ? props.height : 49,
+      borderWidth: props.borderWidth ? props.borderWidth : 0,
+      borderColor: props.borderColor ? props.borderColor : "#000000"
+    }]}>
+        <Text style={[btnStyles.text, {
+        color: props.color ? props.color : "#ffffff"
+      }]}>
           {props.children}
         </Text>
       </View>
-    </TouchableHighlight>
-  );
+    </TouchableHighlight>;
 };
 
 const btnStyles = StyleSheet.create({
